@@ -1,17 +1,19 @@
 package com.task.kanban.model;
 
+import com.task.kanban.model.enums.Prioridade;
+import com.task.kanban.model.enums.Status;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity(name = "Tarefa")
 @Table(name = "tarefas")
 public class Tarefa {
-    public Tarefa(int id, String titulo, String descricao, LocalDateTime dataCriacao, String status, String prioridade, LocalDateTime dataLimite) {
+    public Tarefa(int id, String titulo, String descricao, Prioridade prioridade, LocalDateTime dataLimite) {
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
-        this.dataCriacao = dataCriacao;
-        this.status = status;
+        this.dataCriacao = LocalDateTime.now();
+        this.status = Status.A_FAZER;
         this.prioridade = prioridade;
         this.dataLimite = dataLimite;
     }
@@ -22,8 +24,12 @@ public class Tarefa {
     private String titulo;
     private String descricao;
     private LocalDateTime dataCriacao;
-    private String status;
-    private String prioridade;
+
+    @Enumerated(EnumType.STRING)
+    private Status status;
+
+    @Enumerated(EnumType.STRING)
+    private Prioridade prioridade;
     private LocalDateTime dataLimite;
 
     public int getId() {
@@ -42,11 +48,11 @@ public class Tarefa {
         return dataCriacao;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public String getPrioridade() {
+    public Prioridade getPrioridade() {
         return prioridade;
     }
 

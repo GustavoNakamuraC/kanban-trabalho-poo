@@ -21,8 +21,6 @@ public class TarefaMapper {
                 dto.getId(),
                 dto.getTitulo(),
                 dto.getDescricao(),
-                dto.getDataCriacao(),
-                dto.getStatus(),
                 dto.getPrioridade(),
                 dto.getDataLimite()
         );
