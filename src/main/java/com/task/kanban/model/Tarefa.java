@@ -18,6 +18,8 @@ public class Tarefa {
         this.dataLimite = dataLimite;
     }
 
+    public Tarefa(){ }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
