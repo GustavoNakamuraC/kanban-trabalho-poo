@@ -69,4 +69,16 @@ public class TarefaService {
         tarefaRepository.save(tarefa);
         return TarefaMapper.entityToDto(tarefa);
     }
+
+    public TarefaDto alterarTarefa(TarefaDto tarefaEditada, Integer id) {
+        Tarefa tarefa = findById(id);
+
+        tarefa.setTitulo(tarefaEditada.getTitulo());
+        tarefa.setDescricao(tarefaEditada.getDescricao());
+        tarefa.setPrioridade(tarefaEditada.getPrioridade());
+        tarefa.setDataLimite(tarefa.getDataLimite());
+
+        tarefaRepository.save(tarefa);
+        return TarefaMapper.entityToDto(tarefa);
+    }
 }

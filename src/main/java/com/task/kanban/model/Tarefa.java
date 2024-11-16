@@ -68,6 +68,22 @@ public class Tarefa {
         return dataLimite;
     }
 
+    public void setDataLimite(LocalDate dataLimite) {
+        this.dataLimite = dataLimite;
+    }
+
+    public void setPrioridade(Prioridade prioridade) {
+        this.prioridade = prioridade;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
     @Override
     public String toString() {
         return "Tarefa{" +

@@ -33,4 +33,10 @@ public class TarefaController {
     public TarefaDto moverTarefa(@PathVariable("id") Integer id){
         return tarefaService.moverTarefa(id);
     }
+
+    //Editar uma tarefa (alterar título, descrição, prioridade, etc.).
+    @PutMapping(value = "/{id}")
+    public TarefaDto editarTarefa(@RequestBody TarefaDto tarefaEditada, @PathVariable("id") Integer id){
+        return tarefaService.alterarTarefa(tarefaEditada, id    );
+    }
 }
