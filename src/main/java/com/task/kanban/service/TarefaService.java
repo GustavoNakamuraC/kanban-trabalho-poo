@@ -44,4 +44,29 @@ public class TarefaService {
 
         return tarefaList;
     }
+
+    public Tarefa findById(Integer id) {
+        return tarefaRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Tarefa não encontrada"));
+    }
+
+    public TarefaDto moverTarefa(Integer id){
+        Tarefa tarefa = findById(id);
+        System.out.println(tarefa.toString());
+
+        switch (tarefa.getStatus()){
+            case A_FAZER: {
+                tarefa.setStatus(Status.EM_PROGRESSO);
+                break;
+            }
+
+            case EM_PROGRESSO: {
+                tarefa.setStatus(Status.CONCLUIDO);
+                break;
+            }
+        }
+
+        tarefaRepository.save(tarefa);
+        return TarefaMapper.entityToDto(tarefa);
+    }
 }

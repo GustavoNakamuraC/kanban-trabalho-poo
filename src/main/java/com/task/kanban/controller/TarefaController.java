@@ -27,4 +27,10 @@ public class TarefaController {
     public List<TarefaDto> listarTarefas(){
         return tarefaService.listarTarefas();
     }
+
+    //Mover uma tarefa entre as colunas do Kanban (A Fazer → Em Progresso → Concluído).
+    @PutMapping(value = "/{id}/move")
+    public TarefaDto moverTarefa(@PathVariable("id") Integer id){
+        return tarefaService.moverTarefa(id);
+    }
 }

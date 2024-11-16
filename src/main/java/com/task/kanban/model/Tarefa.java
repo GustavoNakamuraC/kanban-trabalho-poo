@@ -3,16 +3,18 @@ package com.task.kanban.model;
 import com.task.kanban.model.enums.Prioridade;
 import com.task.kanban.model.enums.Status;
 import jakarta.persistence.*;
+
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity(name = "Tarefa")
 @Table(name = "tarefas")
 public class Tarefa {
-    public Tarefa(int id, String titulo, String descricao, Prioridade prioridade, LocalDateTime dataLimite) {
+    public Tarefa(int id, String titulo, String descricao, Prioridade prioridade, LocalDate dataLimite) {
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
-        this.dataCriacao = LocalDateTime.now();
+        this.dataCriacao = LocalDate.now();
         this.status = Status.A_FAZER;
         this.prioridade = prioridade;
         this.dataLimite = dataLimite;
@@ -25,14 +27,14 @@ public class Tarefa {
     private int id;
     private String titulo;
     private String descricao;
-    private LocalDateTime dataCriacao;
+    private LocalDate dataCriacao;
 
     @Enumerated(EnumType.STRING)
     private Status status;
 
     @Enumerated(EnumType.STRING)
     private Prioridade prioridade;
-    private LocalDateTime dataLimite;
+    private LocalDate dataLimite;
 
     public int getId() {
         return id;
@@ -46,7 +48,7 @@ public class Tarefa {
         return descricao;
     }
 
-    public LocalDateTime getDataCriacao() {
+    public LocalDate getDataCriacao() {
         return dataCriacao;
     }
 
@@ -54,11 +56,28 @@ public class Tarefa {
         return status;
     }
 
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
     public Prioridade getPrioridade() {
         return prioridade;
     }
 
-    public LocalDateTime getDataLimite() {
+    public LocalDate getDataLimite() {
         return dataLimite;
+    }
+
+    @Override
+    public String toString() {
+        return "Tarefa{" +
+                "id=" + id +
+                ", titulo='" + titulo + '\'' +
+                ", descricao='" + descricao + '\'' +
+                ", dataCriacao=" + dataCriacao +
+                ", status=" + status +
+                ", prioridade=" + prioridade +
+                ", dataLimite=" + dataLimite +
+                '}';
     }
 }

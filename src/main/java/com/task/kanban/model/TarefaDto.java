@@ -3,10 +3,11 @@ package com.task.kanban.model;
 import com.task.kanban.model.enums.Prioridade;
 import com.task.kanban.model.enums.Status;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class TarefaDto {
-    public TarefaDto(int id, String titulo, String descricao, LocalDateTime dataCriacao, Status status, Prioridade prioridade, LocalDateTime dataLimite) {
+    public TarefaDto(int id, String titulo, String descricao, LocalDate dataCriacao, Status status, Prioridade prioridade, LocalDate dataLimite) {
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
@@ -19,10 +20,10 @@ public class TarefaDto {
     private int id;
     private String titulo;
     private String descricao;
-    private LocalDateTime dataCriacao;
+    private LocalDate dataCriacao;
     private Status status;
     private Prioridade prioridade;
-    private LocalDateTime dataLimite;
+    private LocalDate dataLimite;
 
     public int getId() {
         return id;
@@ -36,7 +37,7 @@ public class TarefaDto {
         return descricao;
     }
 
-    public LocalDateTime getDataCriacao() {
+    public LocalDate getDataCriacao() {
         return dataCriacao;
     }
 
@@ -48,7 +49,7 @@ public class TarefaDto {
         return prioridade;
     }
 
-    public LocalDateTime getDataLimite() {
+    public LocalDate getDataLimite() {
         return dataLimite;
     }
 }
