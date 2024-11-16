@@ -39,4 +39,9 @@ public class TarefaController {
     public TarefaDto editarTarefa(@RequestBody TarefaDto tarefaEditada, @PathVariable("id") Integer id){
         return tarefaService.alterarTarefa(tarefaEditada, id    );
     }
+
+    @DeleteMapping(value = "/{id}")
+    public void deletarTarefa(@PathVariable("id") Integer id){
+        tarefaService.deletarTarefa(id);
+    }
 }

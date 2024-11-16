@@ -81,4 +81,8 @@ public class TarefaService {
         tarefaRepository.save(tarefa);
         return TarefaMapper.entityToDto(tarefa);
     }
+
+    public void deletarTarefa(Integer id){
+        tarefaRepository.deleteById(id);
+    }
 }
